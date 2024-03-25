@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delete Voter ID - Election Management</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    
+    form {
+        margin-top: 30px;
+    }
+    
+    label {
+        font-weight: bold;
+        color: #555;
+    }
+    
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Delete Voter ID</h1>
+    <form action="https://api.web3forms.com/submit" method="POST">
+        <label for="voter_id">Enter Voter ID to Delete:</label><input type="hidden" name="access_key" value="82eab018-11dc-4d66-8409-aa3e0d5f55c6">
+
+        <input type="text" id="voter_id" name="voter_id" placeholder="Enter Voter ID" required>
+        <input type="submit" value="Delete">
+    </form>
+</div>
+
+<script>
+    // Dummy array to store submitted voter IDs
+    var submittedIDs = [];
+
+    // Function to handle form submission
+    document.getElementById("deleteForm").addEventListener("submit", function(event) {
+        var enteredID = document.getElementById("voter_id").value;
+
+        // Check if the entered ID is already submitted
+        if (submittedIDs.includes(enteredID)) {
+            alert("This Voter ID has already been submitted. Please enter a different one.");
+            event.preventDefault(); // Prevent form submission
+        } else {
+            // If not submitted, add it to the array and allow submission
+            submittedIDs.push(enteredID);
+            alert("Form submitted successfully!");
+        }
+    });
+</script>
+
+</body>
+</html>

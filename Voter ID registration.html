@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="voterRegistrationApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voter ID Registration</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+
+<body>
+
+    
+    
+    
+      
+    
+
+    <form action="https://api.web3forms.com/submit" method="POST" >
+        <!-- Personal Information -->
+        <h2>Personal Information</h2>
+        <label for="firstName">First Name:</label><input type="hidden" name="access_key" value="82eab018-11dc-4d66-8409-aa3e0d5f55c6">
+        <input name='first_name' type="text"  ng-model="formData.firstName" placeholder="First name" required>
+
+        <label for="lastName">Last Name:</label>
+        <input name='last_name' type="text"  ng-model="formData.lastName" placeholder="Last name" required>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" name='DOB'  ng-model="formData.dob" placeholder="DOB" required>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" ng-model="formData.gender" name='Gender' placeholder="Gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+
+        <!-- Address Information -->
+        <h2>Address Information</h2>
+        <label for="address">Address:</label>
+        <textarea  ng-model="formData.address" name='address' placeholder="Address"   required></textarea>
+
+        <label for="city">City:</label>
+        <input type="text" ng-model="formData.city" name='city' placeholder="City" required>
+
+        <label for="state">State:</label>
+        <input type="text" name='state'  ng-model="formData.state" placeholder="State" required>
+
+        <label for="zip">ZIP Code:</label>
+        <input type="text" name='zip code'  ng-model="formData.zip" placeholder="ZIP code" required>
+
+        <!-- Contact Information -->
+        <h2>Contact Information</h2>
+        <label for="email">Email:</label>
+        <input type="email" name='email' ng-model="formData.email" placeholder="Email" required>
+
+        <label for="phone">Phone:</label>
+        <input type="tel" name='phone'  ng-model="formData.phone" placeholder="Phone" required>
+
+        <!-- Additional Information -->
+        <h2>Additional Information</h2>
+        <label for="occupation">Occupation:</label>
+        <input type="text" name='occupation' ng-model="formData.occupation" placeholder="Occupation">
+
+        <label for="education">Education:</label>
+        <input type="text" name='education'  ng-model="formData.education" placeholder="Education">
+
+        <!-- Voting History -->
+        <h2>Voting History</h2>
+        <label for="lastElection">Last Election Voted:</label>
+        <input type="text" name='last_election_voted'  ng-model="formData.lastElection" placeholder="last_Election_Voted">
+
+        <label for="reasonNotVoting">Reason for Not Voting (if applicable):</label>
+        <input name='reasonNotVoting'  type="text"  ng-model="formData.reasonNotVoting" placeholder="reasonNotVoting">
+        <!-- Submit Button -->
+        <button type="submit">Submit</button>
+    </form> 
+       
+
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app2.js"></script>
+</body>
+
+</html>

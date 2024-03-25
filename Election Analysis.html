@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html ng-app="electionApp">
+
+<head>
+    <title>Indian Election Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        hr {
+            border-color: #fff;
+            margin-bottom: 20px;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .links a {
+            display: block;
+            margin: 10px 0;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .links a:hover {
+            background-color: #2980b9;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body ng-controller="MainController">
+
+    <header>
+        <h1>Indian Election Results and Analysis</h1>
+        <hr>
+        <img src="data.jpg" alt="Indian Election Data">
+    </header>
+
+    <div class="container">
+        <div class="links">
+            <a ng-repeat="analysis in analyses" ng-href="{{analysis.link}}">{{analysis.title}}</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Indian Election Analysis</p>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var app = angular.module('electionApp', []);
+
+        app.controller('MainController', ['$scope', function($scope) {
+            $scope.analyses = [
+ { title: 'Back to the home page', link: 'index.html' },
+
+                { title: 'Analysis of 13Th Lok sabha', link: 'View page 2.html' },
+                { title: 'Analysis of 14Th Lok sabha', link: 'View page 3.html' },
+                { title: 'Analysis of 15Th Lok sabha', link: 'View page 4.html' },
+                { title: 'Analysis of 16Th Lok sabha', link: 'View page 5.html' },
+                { title: 'Analysis of 17Th Lok sabha', link: 'View page 6.html' }
+            ];
+        }]);
+    </script>
+</body>
+
+</html>

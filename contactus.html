@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Form</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+form {
+  margin-top: 30px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.error {
+  color: red;
+}
+
+.success {
+  color: green;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Contact Us</h1>
+  <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" >
+    <label for="name">Name</label><input type="hidden" name="access_key" value="3ce728fb-ae39-43c2-a7eb-b26c0486fd01">
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+  var name = document.getElementById('name').value.trim();
+  var email = document.getElementById('email').value.trim();
+  var message = document.getElementById('message').value.trim();
+  var isValid = true;
+
+  if (name === '') {
+    isValid = false;
+    document.getElementById('name').classList.add('error');
+  } else {
+    document.getElementById('name').classList.remove('error');
+  }
+
+  if (email === '' || !isValidEmail(email)) {
+    isValid = false;
+    document.getElementById('email').classList.add('error');
+  } else {
+    document.getElementById('email').classList.remove('error');
+  }
+
+  if (message === '') {
+    isValid = false;
+    document.getElementById('message').classList.add('error');
+  } else {
+    document.getElementById('message').classList.remove('error');
+  }
+
+  if (!isValid) {
+    event.preventDefault();
+    return false;
+  }
+});
+
+function isValidEmail(email) {
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+</script>
+
+</body>
+</html>
